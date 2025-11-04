@@ -39,8 +39,12 @@ export const AuthPage: React.FC = () => {
           setError(error.message || 'Error al registrarse');
         } else {
           setError('');
-          alert('¡Registro exitoso! Revisa tu correo para verificar tu cuenta.');
+          // Limpiar el formulario
+          setFormData({ name: '', email: '', password: '' });
+          // Cambiar a modo login
           setIsLogin(true);
+          // Mostrar mensaje de éxito
+          alert('✅ ¡Cuenta creada exitosamente!\n\nAhora puedes iniciar sesión con tu email y contraseña.');
         }
       }
     } catch (err: any) {
